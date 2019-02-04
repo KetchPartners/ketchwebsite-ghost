@@ -2,34 +2,118 @@
 {{!-- The tag above means: insert everything in this file
 into the {body} of the default.hbs template --}}
 
-{{> header background=@site.cover_image}} {{!--Special header.hbs partial to generate the <header> tag--}}
-    <div class="inner">
-        <div class="site-header-content">
-            <h1 class="site-title">
-                {{#if @site.logo}}
-                    <img class="site-logo" src="{{img_url @site.logo size="l"}}" alt="{{@site.title}}" />
-                {{else}}
-                    {{@site.title}}
-                {{/if}}
-            </h1>
-            <h2 class="site-description">{{@site.description}}</h2>
-        </div>
-        {{> "site-nav"}}
-    </div>
+{{> header}} {{!--Special header.hbs partial to generate the <header> tag--}}
+
 </header>
 
 {{!-- The main content area --}}
 <main id="site-main" class="site-main outer">
     <div class="inner">
+        <div class="grid-container section-container">
+          <div class="hero-image">
+            <div class="hero-text is-animating" id="hero-parent">
+              <div class="animate-one" id="animate-one">
+                <p id="animate-one">SAP HANA System Integration and Business Transformation</p>
+              </div>
+              <div class="animate-two">
+                <h2 id="animate-two">Strategy</h2>
+              </div>
+              <div class="animate-three">
+                <h2 id="animate-three">Transformation</h2>
+              </div>
+              <div class="animate-four">
+                <h2 id="animate-four">Trust</h2>
+              </div>
 
-        <div class="post-feed">
-            {{#foreach posts}}
-
-                {{!-- The tag below includes the markup for each post - partials/post-card.hbs --}}
-                {{> "post-card"}}
-
-            {{/foreach}}
+            </div>
+          </div>
         </div>
+
+
+        <div class="grid-container">
+            <div class="grid-x" id="ketch-video-block">
+              <div class="cell large-6">
+                  <div class="callout no-border" id="ketch-video-text">
+                    <p><img src="{{asset 'img/logo-top-bar-white-01.png'}}" width="70%" alt="Ketch Partners Logo" /></p>
+                    <br>
+                    <br>
+                    <h5 class="text-center">Learn Why Ketch Partners Is Your Best Choice For SAP HANA Systems Integration</h5> 
+                    <p class="text-center">Play the video to learn more</p>
+                   </div>
+                </div>
+
+
+                <div class="cell large-6" id="ketch-video">
+                  <div class="responsive-embed">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/MI6OqHWTuQE?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+                  </div>
+
+                </div>
+             </div>
+        </div>
+
+
+        <div class="grid-container">
+        <div class="grid-x grid-margin-x">
+          <div class="cell large-9">
+        <h3 class="text-center" id="latest-news">Latest News</h3>
+
+
+            <div class="post-feed">
+
+                {{#foreach posts}}
+                  {{#if featured}}
+                    {{!-- The tag below includes the markup for each post - partials/post-card.hbs --}}
+                    {{> "post-card"}}
+                  {{/if}}
+                {{/foreach}}
+
+            </div>
+
+        </div>
+          <div class="cell large-3">
+                <aside class="grid-container" id="press-release-wrapper">
+                  <h3 class="text-center" id="press-release-header">Press Releases</h3>
+                  <nav class="callout" id="press-release-container">
+                    <ul class="no-bullet" id="press-release-list">
+                    {{#get "posts" filter="tags:press-releases"}}
+                      {{#foreach posts}}
+                        <li><a src="{{url}}" target="_self"><p>{{title}}</p></a></li>
+                      {{/foreach}}
+                    {{/get}}
+                  </ul>
+
+
+                  </nav>
+                </aside>
+
+                <aside class="grid-container" id="newsletter-wrapper">
+                  <h3 class="text-center" id="newsletter-header">Newsletter</h3>
+                  <div class="callout" id="newsletter-container">
+                    <form class="form-registration-group" action="" id="newsletterForm">
+                    <input class="form-registration-input" type="email" placeholder="Your email" required id="newsletterSubscribeEmail">
+                    <input class="form-registration-submit-button" type="submit" value="Subscribe" id="newsletterSubscribeSubmit">
+
+
+                  </form>
+                  </div>
+                  <div class="reveal" id="newsletterSubscribeModal" data-reveal>
+                 <p class="text-center">Thank you for registering with Ketch Partners.</p>
+
+                   <button class="close-button" data-close aria-label="Close reveal" type="button">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                </aside>
+          </div>
+
+        </div>
+        </div>    
 
     </div>
 </main>
+
+
+
+

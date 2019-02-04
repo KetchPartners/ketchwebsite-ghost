@@ -12,8 +12,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     {{!-- Styles'n'Scripts --}}
-    <link rel="stylesheet" type="text/css" href="{{asset "built/screen.css"}}" />
+    <!-- <link rel="stylesheet" type="text/css" href="{{asset "built/screen.css"}}" /> -->
+    <link rel="stylesheet" type="text/css" href="{{asset "built/app.css"}}" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.typekit.net/kzp0puw.css" />
+    <!--GDPR Cookie Compliance - attribution goes to https://cookieconsent.insites.com/-->
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" />
 
+    <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script>
+    <script>
+        window.addEventListener("load", function(){
+        window.cookieconsent.initialise({
+          "palette": {
+            "popup": {
+              "background": "#18306e",
+              "text": "#ffffff"
+            },
+            "button": {
+              "background": "#fdaf14",
+              "text": "#000000"
+            }
+          },
+          "position": "bottom-right",
+          "content": {
+            "href": "{{root}}terms.html"
+          }
+    })});
+    </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-133552521-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-133552521-1');
+    </script>
     {{!-- This tag outputs SEO meta+structured data and other important settings --}}
     {{ghost_head}}
 
@@ -26,35 +60,124 @@
         {{{body}}}
 
         {{!-- The footer at the very bottom of the screen --}}
-        <footer class="site-footer outer">
+<!--        <footer class="site-footer outer">
             <div class="site-footer-content inner">
-                <section class="copyright"><a href="{{@site.url}}">{{@site.title}}</a> &copy; {{date format="YYYY"}}</section>
+                <section class="copyright"><a href="{{@blog.url}}">{{@blog.title}}</a> &copy; {{date format="YYYY"}}</section>
                 <nav class="site-footer-nav">
-                    <a href="{{@site.url}}">Latest Posts</a>
-                    {{#if @site.facebook}}<a href="{{facebook_url @site.facebook}}" target="_blank" rel="noopener">Facebook</a>{{/if}}
-                    {{#if @site.twitter}}<a href="{{twitter_url @site.twitter}}" target="_blank" rel="noopener">Twitter</a>{{/if}}
+                    <a href="{{@blog.url}}">Latest Posts</a>
+                    {{#if @blog.facebook}}<a href="{{facebook_url @blog.facebook}}" target="_blank" rel="noopener">Facebook</a>{{/if}}
+                    {{#if @blog.twitter}}<a href="{{twitter_url @blog.twitter}}" target="_blank" rel="noopener">Twitter</a>{{/if}}
                     <a href="https://ghost.org" target="_blank" rel="noopener">Ghost</a>
                 </nav>
             </div>
+        </footer>-->
+
+
+        <footer class="marketing-site-footer">
+          <div class="row medium-unstack">
+            <div class="medium-4 columns">
+              <h4 class="marketing-site-footer-name">Ketch Partners</h4>
+              <p id="footer-slogan">Full Service SAP Project Consulting Services</p>
+              <ul class="menu marketing-site-footer-menu-social simple" id="footer-social">
+                <li><a href="https://www.youtube.com/channel/UCm5iewk4-UwL1FiG8dDiSgw" target="_blank"><i class="fab fa-youtube-square" aria-hidden="true"></i></a></li>
+                 <li><a href="https://www.linkedin.com/company/intenxus-llc" target="_blank"><i class="fab fa-linkedin" aria-hidden="true"></i></a></li>
+                 <li><a href="https://github.com/KetchPartners" target="_blank"><i class="fab fa-github-square" aria-hidden="true"></i></a></li>
+                 <li><a href="https://twitter.com/ketchpartners" target="_blank"><i class="fab fa-twitter-square" aria-hidden="true"></i></a></li>
+              </ul>
+            </div>
+            <div class="medium-4 columns" id="footer-contact">
+               <h4 class="marketing-site-footer-title">Contact Info</h4>
+              <div class="marketing-site-footer-block">
+                <i class="fas fa-map-marker" aria-hidden="true"></i>
+                <p>1075 Peachtree Street NE Suite 3650<br>Atlanta, GA 30309</p>
+              </div>
+              <div class="marketing-site-footer-block">
+                <i class="fas fa-phone" aria-hidden="true"></i>
+                <p><a href="tel:1-404-965-3571">1-404-965-3571</a></p>
+              </div>
+              <div class="marketing-site-footer-block">
+                <i class="fas fa-envelope-open" aria-hidden="true"></i>
+                <p><a href="mailto:info@ketch.partners?Subject=Website%20Inquiry" target="_top">info@ketch.partners</a></p>
+              </div>
+            </div>
+            <div class="medium-4 columns">
+            
+              <div class="row small-up-2">
+                <div class="column column-block">
+                  <a hrc="{{root}}index.html"><img src="{{asset "img/logo-footer.png"}}" alt="Ketch Logo" /></a>
+                </div>
+                <div class="column column-block">
+                  <img src="{{asset 'img/ketchimages/Partner-SAP-footer.png'}}" alt="SAP Partner Logo" />
+                </div>
+            
+              </div>
+            </div>
+          </div>
+          <div class="marketing-site-footer-bottom">
+            <div class="row large-unstack align-middle">
+
+              <div class="column">
+                <ul class="menu marketing-site-footer-bottom-links">
+                  <li><a href="/">Home</a></li>
+                  <li><a href="/privacy/">Privacy</a></li>
+                  <li><a href="/terms/">Terms of Use</a></li>        
+                  <li><a href="/">&copy; 2018 Ketch Partners</a></li>
+
+                </ul>
+              </div>
+            </div>
+          </div>
         </footer>
 
     </div>
 
-    {{!-- The big email subscribe modal content --}}
+<!--    {{!-- The big email subscribe modal content --}}
     {{#if @labs.subscribers}}
     <div id="subscribe" class="subscribe-overlay">
         <a class="subscribe-overlay-close" href="#"></a>
         <div class="subscribe-overlay-content">
-            {{#if @site.logo}}
-                <img class="subscribe-overlay-logo" src="{{@site.logo}}" alt="{{@site.title}}" />
+            {{#if @blog.logo}}
+                <img class="subscribe-overlay-logo" src="{{@blog.logo}}" alt="{{@blog.title}}" />
             {{/if}}
-            <h1 class="subscribe-overlay-title">Subscribe to {{@site.title}}</h1>
+            <h1 class="subscribe-overlay-title">Subscribe to {{@blog.title}}</h1>
             <p class="subscribe-overlay-description">Stay up to date! Get all the latest &amp; greatest posts delivered straight to your inbox</p>
             {{subscribe_form placeholder="youremail@example.com"}}
         </div>
     </div>
-    {{/if}}
+    {{/if}}-->
 
+
+
+    <script src="https://www.gstatic.com/firebasejs/5.7.1/firebase.js"></script>
+
+    <script>
+  
+  var config = {
+    apiKey: "AIzaSyAmgp7FQ0KWhcWYOBQ97Oxh0u67gjbgXxk",
+    authDomain: "ketchpartnersproduction.firebaseapp.com",
+    databaseURL: "https://ketchpartnersproduction.firebaseio.com",
+    projectId: "ketchpartnersproduction",
+    storageBucket: "ketchpartnersproduction.appspot.com",
+    messagingSenderId: "787961167035"
+  };
+  firebase.initializeApp(config);
+
+
+  var storage = firebase.storage();
+
+
+   </script>
+
+
+
+
+<script type="text/javascript" src="{{asset "built/app.js"}}"></script>
+<script>
+  var questionRef=firebase.database().ref("inqury");var $questionForm=$("#questionForm");$questionForm.submit(function(event){event.preventDefault();var questionData=$questionForm.serializeArray();questionRef.push(questionData,function(err){if(err){window.alert("Error when submitting data: "+err.message)}});$("#questionForm")[0].reset();$("#questionSuccess").fadeIn("slow").removeClass("hide")});var subscribeRef=firebase.database().ref("subscribe");$("#downloadSubmit").on("click",function(event){event.preventDefault();var downloadEmail=document.getElementById("downloadEmail").value;saveDownload(downloadEmail);var storage=firebase.app().storage("gs://ketchpartnersproduction.appspot.com");var storageRef=firebase.storage().ref();var newsletterRef=storageRef.child("newsletter/newsletter.pdf");newsletterRef.getDownloadURL().then(function(url){console.log(url);$("#downloadModal").foundation("open");$("#downloadLink").attr("href",url)})["catch"](function(error){switch(error.code){case"storage/object-not-found":alert("Download is not available at this time, please try again later");break;case"storage/unauthorized":alert("Server authorizatino error");break;case"storage/canceled":alert("Canceled");break;case"storage/unknown":alert("Download is not available at this time, please try again later");break;default:alert("Error");break}})});function saveDownload(downloadEmail){var newSubscribeRef=subscribeRef.push();newSubscribeRef.set({email:downloadEmail})}var newsletterSubscribeRef=firebase.database().ref("newsletterSubscribe");$("#newsletterSubscribeSubmit").on("click",function(event){event.preventDefault();var newsletterSubscribeEmail=document.getElementById("newsletterSubscribeEmail").value;saveNewsletterSubscribe(newsletterSubscribeEmail);$("#newsletterForm")[0].reset();$("#newsletterSubscribeModal").foundation("open")});function saveNewsletterSubscribe(newsletterSubscribeEmail){var newsletterSubscribeSet=newsletterSubscribeRef.push();newsletterSubscribeSet.set({email:newsletterSubscribeEmail})}
+</script>
+
+
+<script id="dsq-count-scr" src="//ketch-partners.disqus.com/count.js" async></script>
     <script>
         var images = document.querySelectorAll('.kg-gallery-image img');
         images.forEach(function (image) {
@@ -75,6 +198,9 @@
     </script>
     <script type="text/javascript" src="{{asset "built/jquery.fitvids.js"}}"></script>
 
+
+
+
     {{#if pagination.pages}}
     <script src="{{asset "built/infinitescroll.js"}}"></script>
     {{/if}}
@@ -87,3 +213,4 @@
 
 </body>
 </html>
+

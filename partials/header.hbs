@@ -1,53 +1,71 @@
-{{!--
-Wow what the hell is going on in here even?
 
-Ok so, several templates use this big header with a giant BG image. Nice idea, but big images
-have a heavy impact on performance, so it's a good idea to make them responsive. Because we
-can only get the image dynamically using Handlebars, and we can only set the image to properly
-be a background image using CSS, we end up with a handful of inline styles.
+<div class="grid-container">
+<nav class="top-bar topbar-responsive">
+  <div class="top-bar-title">
+    <span data-responsive-toggle="topbar-responsive" data-hide-for="large">
+      <button class="menu-icon" type="button" data-toggle></button>
+    </span>
+    <div itemscope itemtype="http://schema.org/Organization">
+     <meta itemprop="name" content="Ketch Partners" />
+     <a class="topbar-responsive-logo" href="{{root}}index.html" itemprop="url"><strong><img src="{{asset "img/logo-top-bar.png"}}" width="70%" alt="logo" itemprop="logo" /></strong></a>
 
-If the template in question has a background image, then we render responsive image styles
-for it, and apply those styles to the <header> tag. Else, we just output a <header> tag
-with a `no-image` class so we can style it accordingly.
---}}
+    </div>
+  </div>
+  <div id="topbar-responsive" class="topbar-responsive-links">
+    <div class="top-bar-right">
+      <ul class="menu vertical medium-horizontal" id="top-bar-small">
+        <li class="text-center"><a href="/">Home</a></li>
+        <li class="text-center"><a href="/about/">About</a></li>
+        <li class="text-center"><a href="/services/">Services</a></li>
+        <li class="text-center"><a href="/industries/">Industries</a></li>
+        <li class="text-center"><a href="/testimonials/">Testimonials</a></li>
+        <li class="text-center show-for-small-only"><a data-open="contact-form">Contacts</a></li>
+<!--        <li class="text-center"><a href="{{root}}articles.html">Articles</a></li>-->
+        <li>
+          <button type="button" class="hide-for-small-only button hollow topbar-responsive-button" data-open="contact-form">Contact</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+ </div> 
 
-{{#if background}}
 
-<style type="text/css">
-.responsive-header-img {
-    background-image: url({{img_url background size='xl'}});
-}
-@media(max-width: 1000px) {
-    .responsive-header-img {
-        background-image: url({{img_url background size='l'}});
-        background-image: -webkit-image-set(
-                url({{img_url background size='l'}}) 1x,
-                url({{img_url background size='xl'}}) 2x
-        );
-        background-image: image-set(
-                url({{img_url background size='l'}}) 1x,
-                url({{img_url background size='xl'}}) 2x
-        );
-    }
-}
-@media(max-width: 600px) {
-    .responsive-header-img {
-        background-image: url({{img_url background size='m'}});
-        background-image: -webkit-image-set(
-                url({{img_url background size='m'}}) 1x,
-                url({{img_url background size='l'}}) 2x
-        );
-        background-image: image-set(
-                url({{img_url background size='m'}}) 1x,
-                url({{img_url background size='l'}}) 2x
-        );
-    }
-}
-</style>
-<header class="site-header outer responsive-header-img">
 
-{{else}}
+   <div class="reveal" id="contact-form" data-reveal>
+      <form class="callout secondary text-center" id="questionForm" method="post">
+        <h1 class="text-center">Contact Us</h1>
+        <p class="text-center">We’d Love to Hear From You, Get In Touch With Us!</p>
+        <p class="text-center"><i class="fas fa-envelope-open inline-icon" aria-hidden="true"></i><a href="mailto:info@ketch.partners?Subject=Website%20Inquiry" target="_top"><span>info@ketch.partners</span></a></p>
+        <p class="text-center"><i class="fas fa-phone inline-icon" aria-hidden="true"></i><a href="tel:1-404-965-3571">1-404-965-3571</a></p>
 
-<header class="site-header outer no-image">
+        <div class="floated-label-wrapper">
+          <label for="full-name">Company</label>
+          <input type="text" id="questionCompany" name="Company input" placeholder="Company">
+        </div>
+        <div class="floated-label-wrapper">
+          <label for="full-name">Full name</label>
+          <input type="text" id="questionName" name="full name input" placeholder="Full name">
+        </div>
+        <div class="floated-label-wrapper">
+          <label for="email">Email</label>
+          <input type="email" id="questionEmail" name="email input" placeholder="Email" required>
+        </div>
+          <div class="floated-label-wrapper">
+          <label for="Phone">Phone</label>
+          <input type="tel" id="questionPhone" name="phone input" placeholder="Phone">
+        </div>
+        <div class="floated-label-wrapper">
+          <label for="question">Question</label>
+          <input type="text" id="questionMessage" name="question input" placeholder="Question?">
+        </div>
+        <input class="button expanded" id="questionSubmit" type="submit" value="Submit">
+        <button class="close-button" data-close aria-label="Close modal" type="button">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <div class="callout success hide" id="questionSuccess">
+          Thank You For Your Inquiry, We Will Get Back To You Shortly.
+        </div>
+      </form>
 
-{{/if}}
+  </div>
