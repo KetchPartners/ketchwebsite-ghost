@@ -6,6 +6,7 @@
 
 
 {{> header background=feature_image}} {{!--Special header.hbs partial to generate the <header> tag--}}
+</header>
     <div class="grid-container">
        <div class="cell large-9">
 
@@ -31,10 +32,10 @@
                         <a class="social-link social-link-wb" href="{{website}}" target="_blank" rel="noopener">{{> "icons/website"}}</a>
                     {{/if}}
                     {{#if twitter}}
-                        <a class="social-link social-link-tw" href="{{twitter_url}}" target="_blank" rel="noopener">{{> "icons/twitter"}}</a>
+                        <a class="fab fa-linkedin" href="{{twitter_url}}" target="_blank" rel="noopener">{{> "icons/twitter"}}</a>
                     {{/if}}
                     {{#if facebook}}
-                        <a class="social-link social-link-fb" href="{{facebook_url}}" target="_blank" rel="noopener">{{> "icons/facebook"}}</a>
+                        <a class="fab fa-facebook" href="{{facebook_url}}" target="_blank" rel="noopener">{{> "icons/facebook"}}</a>
                     {{/if}}
                     <a class="social-link social-link-rss" href="https://feedly.com/i/subscription/feed/{{url absolute="true"}}rss/" target="_blank" rel="noopener">{{> "icons/rss"}}</a>
               </div>
@@ -44,25 +45,23 @@
 
         </div>
 
-        </div>
-        <div class="cell large-3">
-        </div>
-    </div>
-</header>
+
 {{/author}}
 
 {{!-- The main content area --}}
-<main id="site-main" class="site-main outer">
-    <div class="inner">
+        <main id="site-main" class="site-main outer">
+            <div class="inner">
 
-        <div class="post-feed">
-            {{#foreach posts}}
+                <div class="post-feed">
+                    {{#foreach posts}}
 
-                {{!-- The tag below includes the markup for each post - partials/post-card.hbs --}}
-                {{> "post-card"}}
+                        {{!-- The tag below includes the markup for each post - partials/post-card.hbs --}}
+                        {{> "post-card"}}
 
-            {{/foreach}}
-        </div>
+                    {{/foreach}}
+                </div>
 
+            </div>
+        </main>
     </div>
-</main>
+</div>
