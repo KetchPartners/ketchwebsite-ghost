@@ -1,0 +1,72 @@
+{{!< default}}
+{{!-- The tag above means: insert everything in this file
+into the {body} of the default.hbs template --}}
+
+{{> header}}
+</header>
+
+{{!-- Everything inside the #post tags pulls data from the post --}}
+{{#post}}
+
+<div class="grid-container">
+
+	<div class="grid-container grid-margin-x section-container">
+		<div class="orbit clean-hero-slider" role="region" aria-label="Ketch Partners" data-orbit>
+	  		<div class="orbit-wrapper">
+
+	    		<ul class="orbit-container">
+
+	      			<li class="orbit-slide">
+				        <figure class="orbit-figure">
+				          <img class="orbit-image" src="{{asset '/img/testimonials-header-800x350.jpg'}}" alt="Ketch Partners Testimonials">
+				          <figcaption class="orbit-caption">
+				            <h1>Testimonials</h1>
+	                        <p>Building Trust One Client At A Time</p>
+				          </figcaption>
+				        </figure>
+	      			</li>
+
+	    		</ul>
+	  		</div>
+
+		</div>
+	</div>
+
+</div>
+
+
+<div class="grid-container services-page">
+  <div class="grid-x grid-margin-x">
+      <div class="cell large-12 section-container"  id="newsletter-sticky">
+
+
+        {{#get "posts" filter="tags:Testimonials"}}
+           {{#foreach posts}}
+
+                <div class="marketing-site-features">
+                  <div class="marketing-site-features-header-block" id="services-support-block">
+                        {{content}}
+                  </div>
+
+                 </div>
+            {{/foreach}}
+        {{/get}}
+
+      </div>
+
+  </div>
+</div>  
+
+
+
+{{/post}}
+
+{{!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs --}}
+{{#contentFor "scripts"}}
+<script>
+$(function() {
+    var $postContent = $(".post-full-content");
+    $postContent.fitVids();
+});
+</script>
+{{/contentFor}}

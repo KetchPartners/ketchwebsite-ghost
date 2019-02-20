@@ -18,7 +18,7 @@ var customProperties = require('postcss-custom-properties');
 var easyimport = require('postcss-easy-import');
 
 var nodemonServerInit = function () {
-    livereload.listen(1234);
+    livereload.listen(12943);
 };
 
 function handleError(done) {
