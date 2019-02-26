@@ -79,7 +79,7 @@ into the {body} of the default.hbs template --}}
                     <ul class="no-bullet" id="press-release-list">
                     {{#get "posts" filter="tags:press-releases"}}
                       {{#foreach posts}}
-                        <li><a src="{{url}}" target="_self"><p>{{title}}</p></a></li>
+                        <li><a href="{{url}}" target="_self">{{title}}</a></li>
                       {{/foreach}}
                     {{/get}}
                   </ul>

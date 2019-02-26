@@ -11,46 +11,63 @@ It's a good idea to keep this template as minimal as possible in terms of both f
     <title>{{meta_title}}</title>
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="{{asset "built/screen.css"}}" />
+<!--    <link rel="stylesheet" type="text/css" href="{{asset "built/screen.css"}}" />-->
+     <link rel="stylesheet" type="text/css" href="{{asset "built/app.css"}}" />
 </head>
 <body class="error-template">
-    <div class="site-wrapper">
 
-        <header class="site-header outer {{#if feature_image}}" style="background-image: url({{feature_image}}){{else}}no-image{{/if}}">
-            <div class="inner">
-                <nav class="site-nav-center">
-                    {{#if @site.logo}}
-                        <a class="site-nav-logo" href="{{@site.url}}"><img src="{{img_url @site.logo size="xs"}}" alt="{{@site.title}}" /></a>
-                    {{else}}
-                        <a class="site-nav-logo" href="{{@site.url}}">{{@site.title}}</a>
-                    {{/if}}
-                </nav>
-            </div>
-        </header>
 
-        <main id="site-main" class="site-main outer">
-            <div class="inner">
 
+{{> header}}
+</header>
+   <div class="grid-container">
+        <div class="grid-x grid-margin-x">
+            <div class="cell large-9 section-container"  id="newsletter-sticky">
+
+                <img src="{{asset '/img/404.jpg'}}" alt="404" />
                 <section class="error-message">
-                    <h1 class="error-code">{{code}}</h1>
+                    <h2 class="error-code">{{code}}</h2>
                     <p class="error-description">{{message}}</p>
                     <a class="error-link" href="{{@site.url}}">Go to the front page →</a>
                 </section>
-            </div>
-        </main>
 
-        {{#get "posts" limit="3"}}
-        <aside class="outer">
-            <div class="inner">
-                <div class="post-feed">
-                    {{#foreach posts}}
-                        {{> "post-card"}}
-                    {{/foreach}}
-                </div>
-            </div>
-        </aside>
-        {{/get}}
+                {{#get "posts" limit="3"}}
+                <aside class="outer">
+                    <div class="inner">
+                        <div class="post-feed">
+                            {{#foreach posts}}
+                                {{> "post-card"}}
+                            {{/foreach}}
+                        </div>
+                    </div>
+                </aside>
+                {{/get}}
 
+            </div>
+        <div class="cell large-3 section-container">
+
+<aside class="grid-container" id="newsletter-wrapper">
+  <h3 class="text-center" id="newsletter-header">Newsletter</h3>
+  <div class="callout" id="newsletter-container">
+    <form class="form-registration-group" action="" id="newsletterForm">
+    <input class="form-registration-input" type="email" placeholder="Your email" required id="newsletterSubscribeEmail">
+    <input class="form-registration-submit-button" type="submit" value="Subscribe" id="newsletterSubscribeSubmit">
+
+
+  </form>
+  </div>
+  <div class="reveal" id="newsletterSubscribeModal" data-reveal>
+ <p class="text-center">Thank you for registering with Ketch Partners.</p>
+
+   <button class="close-button" data-close aria-label="Close reveal" type="button">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+</aside>
+        </div>
     </div>
+  </div>
+
+       
 </body>
 </html>

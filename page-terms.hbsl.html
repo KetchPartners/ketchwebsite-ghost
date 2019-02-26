@@ -1,0 +1,57 @@
+{{!< default}}
+{{!-- The tag above means: insert everything in this file
+into the {body} of the default.hbs template --}}
+
+{{> header}}
+</header>
+
+{{!-- Everything inside the #post tags pulls data from the post --}}
+{{#post}}
+
+        {{#get "posts" filter="tags:Terms"}}
+           {{#foreach posts}}
+
+
+<div class="grid-container services-page">
+  <div class="grid-x grid-margin-x">
+      <div class="cell large-12 section-container"  id="newsletter-sticky">
+
+<!-- In this container, add blockquote-left or blockquote-right to make the blockquote left / -->
+ <div class="marketing-site-features">
+  <div class="marketing-site-features-header-block" id="services-header-block">
+  <h1 class="marketing-site-features-headline" id="services-header-headline">{{title}}</h1>
+  <div class="callout" id="services-header">
+
+  {{content}}
+
+
+   </div>
+
+
+  </div>
+</div>
+
+
+
+
+      </div>
+
+  </div>
+</div>  
+
+		{{/foreach}}
+{{/get}}
+
+{{/post}}
+
+{{!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs --}}
+{{#contentFor "scripts"}}
+<script>
+$(function() {
+    var $postContent = $(".post-full-content");
+    $postContent.fitVids();
+});
+</script>
+{{/contentFor}}
+
+
